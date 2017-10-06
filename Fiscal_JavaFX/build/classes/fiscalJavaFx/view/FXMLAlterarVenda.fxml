@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiscalJavaFx.controller.FXMLAlterarVendaController">
+   <children>
+      <SplitPane dividerPositions="0.40963855421686746" layoutX="26.0" layoutY="82.0" prefHeight="378.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tblViewVendas" layoutX="-1.0" layoutY="68.0" prefHeight="376.0" prefWidth="129.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tblColunaVendaNome" prefWidth="75.0" text="Nome" />
+                      <TableColumn fx:id="tblColunaVendaVlrNtFiscal" prefWidth="75.0" text="Valor da Nota Fiscal" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="369.0">
+               <children>
+                  <Label layoutX="127.0" layoutY="20.0" text="Detalhes da Venda">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="30.0" layoutY="88.0" prefHeight="180.0" prefWidth="345.0" AnchorPane.leftAnchor="45.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="155.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="179.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Código" />
+                        <Label text="Nome" GridPane.rowIndex="1" />
+                        <Label text="Data do Faturamento da Nota" GridPane.rowIndex="2" />
+                        <Label text="1ª Parcela" GridPane.rowIndex="3" />
+                        <Label text="2ª Parcela" GridPane.rowIndex="4" />
+                        <Label text="3ª Parcela" GridPane.rowIndex="5" />
+                        <Label text="Valor das Parcelas" GridPane.rowIndex="6" />
+                        <Label text="Quantidade de Parcelas" GridPane.rowIndex="7" />
+                        <Label text="Valor da Nota Fiscal" GridPane.rowIndex="8" />
+                        <Label fx:id="lblVendaCodigo" GridPane.columnIndex="1" />
+                        <Label fx:id="lblClienteNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblVendaDtFatura" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="lblVendaPrmrPrcl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="lblVendaSgndPrcl" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="lblVendaTrcrPrcl" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="lblVlrParcela" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="lblNmrParcela" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="lblVendaVlrNt" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     </children>
+                  </GridPane>
+                  <Group layoutX="163.0" layoutY="335.0">
+                     <children>
+                        <Button fx:id="btnAlterar" layoutX="54.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Alterar" />
+                        <Button fx:id="btnInserir" layoutX="-35.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Inserir" />
+                        <Button fx:id="btnRemover" layoutX="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Remover" />
+                     </children>
+                  </Group>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

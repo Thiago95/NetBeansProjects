@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LocacoesPorClientes_Locacoes" language="groovy" pageWidth="554" pageHeight="802" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idCliente" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+    f.title titulo,
+    f.release_year anoLancamento,
+    r.return_date dataDevolucao
+
+FROM
+    customer c,
+    rental r,
+    inventory i,
+    film f
+
+WHERE
+    /* junções */
+    r.customer_id = c.customer_id AND
+    r.inventory_id = i.inventory_id AND
+    i.film_id = f.film_id AND
+
+    /* restrições */
+    c.customer_id LIKE $P{idCliente} AND
+    r.return_date IS NOT NULL
+
+ORDER BY r.return_date, f.title;]]>
+	</queryString>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="anoLancamento" class="java.sql.Date"/>
+	<field name="dataDevolucao" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="25">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Devolvido em]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="0" width="47" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="0" width="117" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano de Lançamento]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="554" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="1" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{dataDevolucao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="1" width="219" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy">
+				<reportElement x="326" y="1" width="117" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{anoLancamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

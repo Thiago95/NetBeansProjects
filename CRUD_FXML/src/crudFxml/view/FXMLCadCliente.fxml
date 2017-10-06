@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crudFxml.controller.FXMLCadClienteController">
+   <children>
+      <GridPane layoutX="-3.0" layoutY="13.0" prefHeight="132.0" prefWidth="405.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="155.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nome do Cliente">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label text="CNPJ" GridPane.rowIndex="1" />
+            <Label text="Logradouro" GridPane.rowIndex="2" />
+            <Label text="Telefone" GridPane.rowIndex="3" />
+            <Label text="Cidade - UF" GridPane.rowIndex="4" />
+            <TextField fx:id="txtFieldNomeCli" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtFieldCpfCnpj" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtFieldLogradouro" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtFieldTelefone" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtFieldCidadeUF" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Label layoutX="193.0" layoutY="24.0" text="Sistema de Faturamento" />
+      <Button fx:id="btnCancelar" layoutX="258.0" layoutY="196.0" mnemonicParsing="false" onAction="#mnplcBtnCancelar" text="Cancelar" />
+      <Button fx:id="btnCadastrar" layoutX="366.0" layoutY="196.0" mnemonicParsing="false" onAction="#mnplcBtnCadastrar" text="Cadastrar" />
+   </children>
+</AnchorPane>
